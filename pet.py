@@ -1,13 +1,14 @@
-class Calculator():
-    def add(x, y):
-        print(x + y)
-        return x + y
+class Hero:
+    def __init__(self, name, money, inventory):
+        self.name = name
+        self.money = money
+        self.inventory = inventory
 
-    def add_many(numbers):
-        print(sum(numbers))
-        return sum(numbers)
+    def buy(self, item):
+        self.inventory.append(item)
 
-    def subtract(numbers):
-        return numbers
+Raymond = Hero("Raymond",100,["Poop"])
 
-Calculator.subtract(10,5)
+Raymond.buy({"2024 Glasses": "Glasses", "Vision": 24})
+
+print(Raymond.__dict__)
