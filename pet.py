@@ -25,13 +25,6 @@ class Pet:
     def feed(self):
             user = int(input("Feed How Much?"))
             self.__hunger += user 
-<<<<<<< HEAD
-    
-    
-
-
-        
-=======
             self.__happy += 10
     
     def sleep(self):
@@ -39,7 +32,6 @@ class Pet:
          self.__happy += 5
          print(f"{self.name} woke up feeling nice")
     
->>>>>>> 296d20366e1f71bf112d83d68381aa752524caf9
     def show_status(self):
          print(f"{name}'s stats:")
          print(f"Happy: {self.__happy}")
