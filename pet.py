@@ -18,6 +18,9 @@ Guess = random.randint(1,10)
 
 name = input("Name Your Pet: ")
 
+energy_types = ["High", "Low", "Sleepy"]
+hungry_types = ["Stuffed","Full","Empty","Starving"]
+
 class Pet:
     def __init__(self, name, happy, health, hunger, energy):
         self.name = name
@@ -39,6 +42,8 @@ class Pet:
         if asker == "yes":
             user = int(input("Feed How Much?"))
             self.__hunger += user 
+    
+    
 
 
         
