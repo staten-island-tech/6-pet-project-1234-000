@@ -1,45 +1,41 @@
 import random
 
 
-energy_types = ["High", "Low", "Sleepy"]
-hungry_types = ["Stuffed","Full","Empty","Starving"]
-
 class Pet:
-    def __init__(self, name, happy, health, hunger, energy):
+     def __init__(self, name, happy, health, hunger, energy):
         self.name = name
         self.__happy = happy
         self.__health = health
         self.__hunger = hunger
         self.__energy = energy
-    
-
-    def play(self):
-        Guess = random.randint(1,10)
-        if self.__energy < 20:
-            print(f"{self.name} is too tired to play.")
+     
+     def play(self):
+          Guess = random.randint(1,10)
+          if self.__energy < 20:
+            print(f"---{self.name} is too tired to play.---")
             return # If true, stops the rest from running
-        self.__happy += Guess
-        self.__energy -= 20
-        print(f"{self.name} had fun!")
+          self.__happy += Guess
+          self.__energy -= 20
+          print(f"---{self.name} had fun!---")
 
-    def feed(self):
-            user = int(input("Feed How Much?"))
+     def feed(self):
+            user = int(input("---Feed How Much?---"))
             self.__hunger += user 
             self.__happy += 10
     
-    def sleep(self):
+     def sleep(self):
          self.__energy += 30
          self.__happy += 5
-         print(f"{self.name} woke up feeling nice")
+         print(f"---{self.name} woke up feeling nice---")
     
-    def show_status(self):
-         print(f"{name}'s stats:")
+     def show_status(self):
+         print(f"---{name}'s stats:---")
          print(f"Happy: {self.__happy}")
          print(f"Energy:: {self.__energy}")
          print(f"Hunger: {self.__hunger}")
          print(f"Health: {self.__health}")
     
-    def days(self):
+     def days(self):
          self.__hunger -= 5
          self.__energy -= 5
          self.__happy -= 5
@@ -55,10 +51,15 @@ class Pet:
          self.__health = max(0, min(100, self.__health))
          self.__hunger = max(0, min(100, self.__hunger))
         
-    def checker(self):
-         return self.__health > 0
-    def health_c(self):
-         return self.__health
+     def checker(self):
+          return self.__health > 0
+     def health_c(self):
+          if self.__health < 0:
+              return False
+          else:
+              return True
+     def goodbye(self):
+         return self.__health == 0
     
     
 name = input("Name Your Pet: ")
@@ -69,9 +70,18 @@ if pet.health_c() < 50:
 else:
      print(f"{name} is strong. Take care!")
 
+while pet.health_c() == True:
+     print("What Would You Like To Do?")
+     print("Play")
+     print("Sleep")
+     print("Feed")
+     print("Kill")
+     asker = input("---What Would You Like To Do?--- ").lower()
+
+     if asker == "play":
+         pet.play()
 
 
-while pet.is_alive():
-     pet.show_status()
+
      
      
