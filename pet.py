@@ -28,7 +28,7 @@ class Pet:
          print(f"---{self.name} woke up feeling nice---")
     
      def show_status(self):
-         print(f"---{name}'s stats:---")
+         print(f"---{self.name}'s stats:---")
          print(f"Happy: {self.__happy}")
          print(f"Energy:: {self.__energy}")
          print(f"Hunger: {self.__hunger}")
@@ -39,12 +39,12 @@ class Pet:
          self.__energy -= 5
          self.__happy -= 5
          if self.__hunger <= 0:
-            self.__health += 20
-            print(f"{self.__name} is feeling fat")
-         if self.__hunger > 100:
+            self.__health -= 20
+            print(f"{self.name} is feeling fat")
+         if self.__hunger > 99:
               self.__health -= 10
               self.__happy += 5
-              print(f"{self.__name} loves being stuffed but is feeling sick")
+              print(f"{self.name} loves being stuffed but is feeling sick")
          self.__happy = max(0, min(100, self.__happy))
          self.__energy = max(0, min(100, self.__energy))
          self.__health = max(0, min(100, self.__health))
@@ -52,6 +52,11 @@ class Pet:
         
      def health_c(self):
          return self.__health
+     def is_alive(self):
+         if self.__health > 0:
+             return True
+         else:
+             return False
          
     
     
@@ -65,29 +70,30 @@ else:
 
 
 
-checker = True
 
-while checker == True:
-     print("What Would You Like To Do?")
-     print("Play")
-     print("Sleep")
-     print("Feed")
-     print("Kill")
-     asker = input("Input: ").lower()
+
+while True:
+    print("What Would You Like To Do?")
+    print("Play")
+    print("Sleep")
+    print("Feed")
+    print("Kill")
+    asker = input("Input: ").lower()
      
-     if asker == "play":
-         pet.play()
-     elif asker == "sleep":
-         pet.sleep()
-     elif asker == "feed":
-         pet.feed()
-     elif asker == "kill":
-         print("You Killed Your Pet!")
-         break
-     print()
-     pet.days()
-     pet.show_status()
-
+    if asker == "play":
+        pet.play()
+    elif asker == "sleep":
+        pet.sleep()
+    elif asker == "feed":
+        pet.feed()
+    elif asker == "kill":
+        print("You Killed Your Pet!")
+        break
+    print()
+    pet.days()
+    pet.show_status()
+    if pet.is_alive() == False:
+        print(f"{name} died lmao")
 
 
      
