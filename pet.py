@@ -1,6 +1,5 @@
 import random
 
-
 class Pet:
      def __init__(self, name, happy, health, hunger, energy):
         self.name = name
@@ -51,15 +50,9 @@ class Pet:
          self.__health = max(0, min(100, self.__health))
          self.__hunger = max(0, min(100, self.__hunger))
         
-     def checker(self):
-          return self.__health > 0
      def health_c(self):
-          if self.__health < 0:
-              return False
-          else:
-              return True
-     def goodbye(self):
-         return self.__health == 0
+         return self.__health
+         
     
     
 name = input("Name Your Pet: ")
@@ -70,16 +63,30 @@ if pet.health_c() < 50:
 else:
      print(f"{name} is strong. Take care!")
 
-while pet.health_c() == True:
+
+
+checker = True
+
+while checker == True:
      print("What Would You Like To Do?")
      print("Play")
      print("Sleep")
      print("Feed")
      print("Kill")
-     asker = input("---What Would You Like To Do?--- ").lower()
-
+     asker = input("Input: ").lower()
+     
      if asker == "play":
          pet.play()
+     elif asker == "sleep":
+         pet.sleep()
+     elif asker == "feed":
+         pet.feed()
+     elif asker == "kill":
+         print("You Killed Your Pet!")
+         break
+     print()
+     pet.days()
+     pet.show_status()
 
 
 
