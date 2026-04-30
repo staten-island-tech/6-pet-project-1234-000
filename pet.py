@@ -30,7 +30,7 @@ class Pet:
      def show_status(self):
          print(f"---{self.name}'s stats:---")
          print(f"Happy: {self.__happy}")
-         print(f"Energy:: {self.__energy}")
+         print(f"Energy: {self.__energy}")
          print(f"Hunger: {self.__hunger}")
          print(f"Health: {self.__health}")
     
@@ -45,8 +45,6 @@ class Pet:
               self.__health -= 10
               self.__happy += 5
               print(f"{self.name} loves being stuffed but is feeling sick")
-         if self.__energy <0:
-             print(f"{self.name} died because you didn't bring him to sleep")
          self.__happy = max(0, min(100, self.__happy))
          self.__energy = max(0, min(100, self.__energy))
          self.__health = max(0, min(100, self.__health))
@@ -55,7 +53,7 @@ class Pet:
      def health_c(self):
          return self.__health
      def is_alive(self):
-         if self.__health > 0 and self.__energy > 0:
+         if self.__health and self.__energy > 0:
              return True
          else:
              return False
@@ -71,32 +69,27 @@ else:
      print(f"{name} is strong. Take care!")
 
 
-
-
-
 while True:
-    print("What Would You Like To Do?")
-    print("Play")
-    print("Sleep")
-    print("Feed")
-    print("Kill")
-    asker = input("Input: ").lower()
+     print("What Would You Like To Do?")
+     print("Play")
+     print("Sleep")
+     print("Feed")
+     print("Kill")
+     asker = input("Input: ").lower()
      
-    if asker == "play":
-        pet.play()
-    elif asker == "sleep":
-        pet.sleep()
-    elif asker == "feed":
-        pet.feed()
-    elif asker == "kill":
-        print("You Killed Your Pet!")
-        break
-    print()
-    pet.days()
-    pet.show_status()
-    if pet.is_alive() == False:
+     if asker == "play":
+         pet.play()
+     elif asker == "sleep":
+         pet.sleep()
+     elif asker == "feed":
+         pet.feed()
+     elif asker == "kill":
+         print("You Killed Your Pet!")
+         break
+     print()
+     pet.days()
+     pet.show_status()
+     if pet.is_alive() == False:
         print(f"{name} died lmao")
+        break
 
-
-     
-     
