@@ -11,7 +11,7 @@ class Pet:
      def play(self):
           Guess = random.randint(1,10)
           if self.__energy < 20:
-            print(f"---{self.name} is too tired to play.---")
+            print(f"---{self.name} IS TOO TIRED TO PLAY.---")
             return # If true, stops the rest from running
           self.__happy += Guess
           self.__energy -= 20
