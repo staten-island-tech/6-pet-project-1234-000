@@ -45,6 +45,8 @@ class Pet:
               self.__health -= 10
               self.__happy += 5
               print(f"{self.name} loves being stuffed but is feeling sick")
+         if self.__energy <0:
+             print(f"{self.name} died because you didn't bring him to sleep")
          self.__happy = max(0, min(100, self.__happy))
          self.__energy = max(0, min(100, self.__energy))
          self.__health = max(0, min(100, self.__health))
@@ -53,7 +55,7 @@ class Pet:
      def health_c(self):
          return self.__health
      def is_alive(self):
-         if self.__health > 0:
+         if self.__health > 0 and self.__energy > 0:
              return True
          else:
              return False
