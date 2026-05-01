@@ -92,4 +92,4 @@ while True:
      if pet.is_alive() == False:
         print(f"{name} died lmao")
         break
-
+     
